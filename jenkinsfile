@@ -7,5 +7,10 @@ pipeline{
           sh '/usr/local/apache-maven-3.5.2/bin/mvn clean;/usr/local/apache-maven-3.5.2/bin/mvn install'
         }
       }
+      stage('archive') {
+        steps {
+          archiveArtifacts artifacts: '**/*.war', fingerprint: true
+        }
+      }
    }
 }
