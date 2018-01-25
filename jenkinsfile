@@ -4,7 +4,7 @@ pipeline{
    stages {
       stage('BUILD') {
         steps {
-          sh '/usr/local/apache-maven-3.5.2/bin/mvn war'
+          sh '/usr/local/apache-maven-3.5.2/bin/mvn clean;mvn install'
           sh 'cp dist/*.war /var/www/html'
         }
       }
